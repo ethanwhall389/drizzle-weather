@@ -2,7 +2,7 @@ import Api from "./api-requests";
 import Process from "./process-info";
 import UI from "./ui";
 
-const defaultLoc = 'Loda, Illinois'
+const defaultLoc = 'Cape Town, South Africa'
 
 function checkStorage () {
     const lastLoc = localStorage.getItem('lastUsedLoc');

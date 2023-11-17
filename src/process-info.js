@@ -1,6 +1,11 @@
 export default class Process {
     static currentWeather (data) {
         return {
+            'location': {
+                'name': data.location.name,
+                'region': data.location.region,
+                'country': data.location.country
+            },
             'tempC': data.current.temp_c,
             'tempF': data.current.temp_f,
             'condition': data.current.condition.text,
@@ -12,6 +17,11 @@ export default class Process {
         console.log(data);
         return {
             'day0': {
+                'location': {
+                    'name': data.location.name,
+                    'region': data.location.region,
+                    'country': data.location.country
+                },
                 'sunrise': data.forecast.forecastday[0].astro.sunrise,
                 'sunset': data.forecast.forecastday[0].astro.sunset,
                 'isDark': data.forecast.forecastday[0].astro.is_sun_up,
