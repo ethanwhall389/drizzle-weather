@@ -38,9 +38,22 @@ async function loadWeather (query) {
     UI.forecastWeather(forecastWeather);
 }
 
+function queryWeather () {
+    const searchBox = document.querySelector('#search-box');
+    if (searchBox.value != '') {
+        const query = searchBox.value;
+        loadWeather(query);
+    } else {
+        console.log('Please enter a location');
+    }
+}
+
 //EVENT LISTENERS
 
 document.addEventListener('DOMContentLoaded', () => {
     checkStorage();
     requestUserLocation();  
 });
+
+const searchBttn = document.querySelector('.search-bttn');
+searchBttn.addEventListener('click', queryWeather);
