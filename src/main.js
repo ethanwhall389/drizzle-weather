@@ -1,38 +1,46 @@
 import Api from "./api-requests";
 import Process from "./process-info";
+import UI from "./ui";
 
-const loc = prompt('What is your location?');
+const defaultLoc = 'Loda, Illinois'
 
-async function getCurrentWeather () {
-    const data = await Api.forcast(loc);
-    
-    const currentData = Process.currentWeather(data);
-    // console.log(currentData);
-
-    logWeather(currentData);
-
-    return currentData;
-    // console.log(data);
+function checkStorage () {
+    const lastLoc = localStorage.getItem('lastUsedLoc');
+    if (lastLoc != null) {
+        loadWeather(lastLoc)
+    } else {
+        loadWeather(defaultLoc)
+    }
 }
 
-async function getForecast () {
-    const data = await Api.forcast(loc);
-
-    const forecastData = Process.forecastWeather(data);
-    // console.log(forecastData);
-
-    return forecastData;
-    // console.log(data);
+function requestUserLocation () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition( (position) => {
+            //Success
+            const userLat = position.coords.latitude;
+            const userLon = position.coords.longitude;
+            loadWeather(`${userLat},${userLon}`);
+        }, () => {
+            //Failure
+            return; //default loc is already loaded.
+        })
+    }
 }
 
-function logWeather (data) {
-    console.log(data);
+async function loadWeather (query) {
+    localStorage.setItem ('lastUsedLoc', query);
+    console.log(query);
+    const weatherData = await Api.fetchWeather(query)
+    const currentWeather = Process.currentWeather(weatherData);
+    const forecastWeather = Process.forecastWeather(weatherData);
+
+    UI.currentWeather(currentWeather);
+    UI.forecastWeather(forecastWeather);
 }
 
+//EVENT LISTENERS
 
-getCurrentWeather();
-
-
-
-console.log('hiiii');
-
+document.addEventListener('DOMContentLoaded', () => {
+    checkStorage();
+    requestUserLocation();  
+});
