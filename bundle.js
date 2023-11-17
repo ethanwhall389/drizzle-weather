@@ -16,7 +16,7 @@
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Api)\n/* harmony export */ });\nclass Api {\n    static async fetchWeather (query) {\n        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=4018e2169c904008a6b05305231711&q=${query}&days=3`, {mode: \"cors\"})\n        const data = await response.json();\n        // console.log(data);\n        return data\n    }\n}\n\n\n\n//# sourceURL=webpack://drizzle-weather/./src/api-requests.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Api)\n/* harmony export */ });\nclass Api {\n    static async fetchWeather (query) {\n        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=4018e2169c904008a6b05305231711&q=${query}&days=3`, {mode: \"cors\"})\n        const data = await response.json();\n        // console.log(data);\n        return data\n    }\n}\n\n\n\n//# sourceURL=webpack://drizzle-weather/./src/api-requests.js?");
 
 /***/ }),
 
