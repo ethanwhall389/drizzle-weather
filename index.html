@@ -4,15 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drizzle Weather</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="./bundle.js" defer></script>
     <script src="https://kit.fontawesome.com/f255fa4407.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form action="post">
-        <input type="text" id="search-box" placeholder="Location: e.g. Atlanta, Georgia">
-        <div class="search-bttn">
-            <i class="fa-solid fa-magnifying-glass"></i>
+    <div class="main-cont">
+        <section class="current-info">
+            <div class="general-info">
+                <p class="condition">Sunny</p>
+                <p class="location">Greenville, South Carolina</p>
+                <p class="temp">40&deg;</p>
+                <div class="high-low">
+                    <span class="high">High: 55&deg;</span>
+                    <span class="low">Low: 45&deg;</sp>
+                </div>
+                <div class="search-cont">
+                    <form action="post">
+                        <input type="text" id="search-box" placeholder="Atlanta, Georgia">
+                    </form>
+                    <div class="search-bttn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="specific-info">
+                <p class="sunrise">Sunrise: 7:14 AM</p>
+                <p class="sunset">Sunset: 5:30 PM</p>
+                <p class="rain">Chance of rain: 20%</p>
+                <p class="index">Feels like: 20&deg;</p>
+            </div>
+        </section>
+        <div class="options">
+            <div class="temp-scale">
+                <span class="fahrenheit">F</span>
+                <span>/</span>
+                <span class="celsius">C</span>
+            </div>
         </div>
-    </form>
+        <section class="forecast-cont">
+            <div class="daily-cont">
+                <div class="heading-cont">
+                    <h2 class="forecast-heading">Daily</h2>
+                </div>
+            </div>
+            <div class="hourly-cont">
+                <div class="heading-cont">
+                    <h2 class="forecast-heading">Hourly</h2>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
