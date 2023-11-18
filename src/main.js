@@ -23,7 +23,7 @@ function requestUserLocation () {
         }, () => {
             //Failure
             return; //default loc is already loaded.
-        })
+        }, {enableHighAccuracy: true})
     }
 }
 

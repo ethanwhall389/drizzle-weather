@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./media/fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: #ffff;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+
+}
+
+body {
+    position: relative;
+}
+
+.main-cont {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    /* background-image: url('./media/sunset.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%); */
+    background: #737373;
+    padding: 20px;
+    /* z-index: -1; */
+}
+
+/* .main-cont::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: brightness(70%);
+    z-index: -1;
+} */
+
+section.current-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.general-info * {
+    margin-bottom: 5px;
+}
+
+.general-info, .specific-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.general-info .condition {
+    font-size: 1.5rem;
+}
+
+.general-info .location {
+    font-size: 1.1rem;
+}
+
+.general-info .temp {
+    font-size: 2.8rem;
+    font-weight: 500;
+}
+
+.high-low .high {
+    padding-right: 5px;
+    border-right: 1.5px solid gray;
+}
+
+.high-low .low {
+    padding-left: 5px;
+    margin-left: -5px;
+}
+
+.search-cont {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.search-cont input {
+    border: none;
+    outline: none;
+    color: #5b5b5b;
+    height: 15px;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+.search-bttn {
+    cursor: pointer;
+}
+
+.search-bttn i {
+    font-size: 20px;
+}
+
+.options {
+    display: flex;
+    justify-content: flex-end;
+}
