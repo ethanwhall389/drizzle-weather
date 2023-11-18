@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
     font-size: 15px;
-    color: #ffff;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 400;
 
@@ -15,9 +14,12 @@
 
 body {
     position: relative;
+    color: #ffff;
 }
 
 .main-cont {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 0;
     right: 0;
@@ -48,10 +50,25 @@ section.current-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 5px;
 }
 
 .general-info * {
     margin-bottom: 5px;
+}
+
+.specific-info p {
+ margin-bottom: 5px;
+}
+
+.specific-info .sunset {
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid gray;
+    margin-bottom: 0;
+}
+
+.specific-info .rain {
+    padding-top: 8px;
 }
 
 .general-info, .specific-info {
@@ -110,4 +127,101 @@ section.current-info {
 .options {
     display: flex;
     justify-content: flex-end;
+}
+
+.options .temp-scale {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+
+/* FORECAST SECTION */
+
+.forecast-main-cont {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    height: 100%;
+    margin-top: 25px;
+    color: #5b5b5b;
+}
+
+.forecast-cont {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    flex: 1;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.heading-cont {
+    display: flex;
+}
+
+.forecast-heading  {
+    font-size: 1.4rem;
+    padding-bottom: 3px;
+    border-bottom: 1.5px solid gray;
+}
+
+.daily-cont .day-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid gray;
+}
+
+.daily-cont .day-cont .high-low {
+    justify-self: center;
+}
+
+.icon {
+    border: 2px solid gray;
+    width: 20px;
+    height: 20px;
+    justify-self: flex-end;
+}
+
+/* HOURLY */
+
+.hourly-day-cont {
+    border: 1.5px solid gray;
+    position: relative;
+    margin-top: 25px;
+    /* display: flex; */
+    /* overflow: visible; */
+    /* gap: 20px; */
+    /* flex: 0; */
+    width: 40vw;
+}
+
+.overflow-cont {
+    /* position: relative; */
+    /* z-index: 5; */
+    padding: 0 10px;
+    display: flex;
+    gap: 20px;
+    max-width: 100%;
+    overflow: scroll;
+}
+
+.hourly-day-cont .day {
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    background-color: #fff;
+    padding: 0 5px;
+}
+
+.hour-cont {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
 }
