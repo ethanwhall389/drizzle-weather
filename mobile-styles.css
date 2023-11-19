@@ -1,0 +1,37 @@
+/* MOBILE STYLES */
+
+@media (max-width: 600px) {
+
+    .specific-info {
+        display: none;
+    }
+
+    section.current-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .options {
+        justify-content: center;
+    }
+
+    #search-box {
+        height: 30px;
+    }
+
+    .forecast-main-cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hourly-day-cont {
+        width: 100%;
+    }
+
+    .overflow-cont {
+        width: inherit;
+        overflow: scroll;
+    }
+}

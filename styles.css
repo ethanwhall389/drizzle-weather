@@ -9,6 +9,7 @@
     font-size: 15px;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     font-weight: 400;
+    box-sizing: border-box;
 
 }
 
@@ -28,8 +29,8 @@ body {
     height: 100vh;
     /* background-image: url('./media/sunset.jpg');
     background-size: cover;
-    background-position: center;
-    filter: brightness(50%); */
+    background-position: center; */
+    /* filter: brightness(50%); */
     background: #737373;
     padding: 20px;
     /* z-index: -1; */
@@ -55,6 +56,13 @@ section.current-info {
 
 .general-info * {
     margin-bottom: 5px;
+}
+
+.conditions-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .specific-info p {
@@ -118,10 +126,6 @@ section.current-info {
 
 .search-bttn {
     cursor: pointer;
-}
-
-.search-bttn i {
-    font-size: 20px;
 }
 
 .options {
@@ -195,7 +199,7 @@ section.current-info {
     /* overflow: visible; */
     /* gap: 20px; */
     /* flex: 0; */
-    width: 40vw;
+    width: 45vw;
 }
 
 .overflow-cont {
@@ -203,7 +207,7 @@ section.current-info {
     /* z-index: 5; */
     padding: 0 10px;
     display: flex;
-    gap: 20px;
+    gap: 25px;
     max-width: 100%;
     overflow: scroll;
 }
@@ -224,4 +228,13 @@ section.current-info {
     align-items: center;
     gap: 5px;
     margin: 10px 0;
+}
+
+/* ICONS */
+.fa-sun {
+    font-size: 20px;
+}
+
+.fa-magnifying-glass {
+    font-size: 20px;
 }
