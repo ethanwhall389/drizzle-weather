@@ -59,7 +59,9 @@ export default class UI {
 
             const day = document.createElement('p');
             day.classList.add('day');
-            day.textContent = weatherData[`day${i}`].date;
+            // day.textContent = weatherData[`day${i}`].date;
+            day.textContent = weatherData[`day${i}`].dayOfWeek;
+            console.log('day:' + weatherData[`day${i}`].dayOfWeek);
 
             const highLowCont = document.createElement('div');
             highLowCont.classList.add('high-low');
