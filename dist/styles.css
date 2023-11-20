@@ -119,7 +119,7 @@ section.current-info {
     border: none;
     outline: none;
     color: #5b5b5b;
-    height: 15px;
+    height: 25px;
     padding: 5px 10px;
     border-radius: 25px;
 }
@@ -180,6 +180,10 @@ section.current-info {
 
 .daily-cont .day-cont .high-low {
     justify-self: center;
+}
+
+.day-cont .high-low .low {
+    padding-left: 10px;
 }
 
 .icon {
