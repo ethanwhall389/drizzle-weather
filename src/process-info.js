@@ -23,6 +23,7 @@ export default class Process {
 
     static forecastWeather (data) {
         console.log(data);
+        // use a for loop based on how many days are shown.
         return {
             'numOfDays': data.forecast.forecastday.length,
             'day0': {

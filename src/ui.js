@@ -20,11 +20,15 @@ export default class UI {
         const conditions = document.querySelector('.conditions-cont .condition')
         conditions.textContent = weatherData.condition;
 
+        const condCont = document.querySelector('.conditions-cont');
+        const icon = this.createIcon(weatherData.condition);
+        condCont.appendChild(icon);
+
         const location = document.querySelector('.general-info .location');
         location.textContent = `${weatherData.location.name}, ${weatherData.location.region}`;
 
         const temp = document.querySelector('.general-info .temp');
-        temp.textContent = weatherData.tempF;
+        temp.textContent = `${weatherData.tempF}\u00B0`;
 
         const high = document.querySelector('.general-info .high');
         high.textContent = `High: ${weatherData.highF}\u00B0`;
