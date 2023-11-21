@@ -1,20 +1,16 @@
+import moment from "moment";
+
 export default class Convert {
     static dateToDay (date) {
-        console.log(date);
+        const dayOfWeek = moment.utc(date).format('ddd');
 
-        const dateObj = new Date(date);
+        const today = moment().format('ddd');
 
-        console.log(dateObj);
+        if (today === dayOfWeek) {
+            return 'Today';
+        } else {
+            return dayOfWeek;
+        }
 
-        const dayOfWeek = dateObj.toLocaleDateString('en-US', { weekday: 'short' });
-
-        // const days = ['Sunday', 'Monday', 'Tuesday', 'Thursday', 'Friday'];
-
-        // const today = days[dayOfWeek];
-
-
-        return dayOfWeek;
-        console.log('today:');
-        console.log(today);
     }
 }
