@@ -51,7 +51,16 @@ export default class UI {
         feelsLike.textContent = `Feels like: ${weatherData.feelsLikeF}\u00B0`;
     }
 
+    static clearDaily () {
+        const daysCont = document.querySelector('.days-cont');
+            while (daysCont.firstChild) {
+                daysCont.removeChild(daysCont.firstChild);
+            }
+        
+    }
+
     static dispDaily (weatherData) {
+        this.clearDaily();
         const daysCont = document.querySelector('.days-cont');
         for (let i = 0; i < weatherData.numOfDays; i++) {
             const dayCont = document.createElement('div');
