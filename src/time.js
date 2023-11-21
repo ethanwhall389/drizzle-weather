@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export default class Convert {
+export default class Time {
     static dateToDay (date) {
         const dayOfWeek = moment.utc(date).format('ddd');
 
@@ -12,5 +12,17 @@ export default class Convert {
             return dayOfWeek;
         }
 
+    }
+
+    static getCurrentTime () {
+        return moment().format('HH:mm');
+    }
+
+    static formatTime24 (time) {
+        return moment(time).format('HH:mm');
+    }
+
+    static formatTime12 (time) {
+        return moment(time).format('h:mm');
     }
 }

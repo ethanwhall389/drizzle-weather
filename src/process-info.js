@@ -1,4 +1,4 @@
-import Convert from "./convert";
+import Time from "./time";
 
 export default class Process {
     static currentWeather (data) {
@@ -38,7 +38,7 @@ export default class Process {
                     'country': data.location.country
                 },
                 'date': data.forecast.forecastday[i].date,
-                'dayOfWeek': Convert.dateToDay(data.forecast.forecastday[i].date),
+                'dayOfWeek': Time.dateToDay(data.forecast.forecastday[i].date),
                 'sunrise': data.forecast.forecastday[i].astro.sunrise,
                 'sunset': data.forecast.forecastday[i].astro.sunset,
                 'isDark': data.forecast.forecastday[i].astro.is_sun_up,

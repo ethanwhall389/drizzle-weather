@@ -1,3 +1,5 @@
+import Time from "./time";
+
 export default class UI {
     static currentWeather (weatherData) {
         this.dispGeneralInfo(weatherData);
@@ -9,11 +11,12 @@ export default class UI {
     }
 
     static forecastWeather (weatherData) {
-        this.dispDaily(weatherData);
-        
         console.log(`${weatherData.day0.location.name}, ${weatherData.day0.location.region}`);
         console.log('forecast:')
         console.log(weatherData);
+        this.dispDaily(weatherData);
+        this.dispHourly(weatherData);
+        
     }
 
     static dispGeneralInfo (weatherData) {
@@ -93,6 +96,44 @@ export default class UI {
             daysCont.appendChild(dayCont);
         }
         //use a for loop to go through each 
+    }
+
+    static dispHourly (weatherData) {
+        //get current time
+        const currentTime = Time.getCurrentTime();
+        //loop through the hours array for first day.
+        //test each hour to see if it is after current time
+            //when it is, take that hour and build the dom elements.
+        for (let i = 0; i < 24; i++) {
+            const hour = weatherData.day0.hourly.hours[i];
+            const time = Time.formatTime24(hour.time);
+            if (time > currentTime) {
+                this.createHour(hour);
+            }
+        }
+    }
+
+    static createHour (hour) {
+        const overflowCont = document.querySelector('.overflow-cont');
+        
+        const hourCont = document.createElement('div');
+        hourCont.classList.add('hour-cont');
+        
+        const time = document.createElement('p');
+        time.classList.add('time');
+        time.textContent = Time.formatTime12(hour.time);
+
+        const conditionIcon = this.createIcon(hour.condition.text);
+        conditionIcon.classList.add('icon');
+
+        const temp = document.createElement('p');
+        temp.classList.add('temp');
+        temp.textContent = `${Math.round(hour.temp_f)}\u00B0`;
+
+        overflowCont.appendChild(hourCont);
+        hourCont.append(time, conditionIcon, temp);
+
+
     }
 
     static createIcon (con) {
