@@ -134,6 +134,5 @@ export default class UI {
         console.log('done loading');
         const loading = document.querySelector('.loading-cont');
         loading.classList.add('hidden');
-
     }
 }
