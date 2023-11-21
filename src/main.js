@@ -44,6 +44,7 @@ async function loadWeather (query) {
     
     } catch (error) {
         alert(error);
+        console.error(error);
     }
 }
 

@@ -25,6 +25,7 @@ export default class UI {
 
         const condCont = document.querySelector('.conditions-cont');
         
+        condCont.removeChild(condCont.lastChild);
         const icon = this.createIcon(weatherData.condition);
         condCont.appendChild(icon);
 
@@ -32,7 +33,7 @@ export default class UI {
         location.textContent = `${weatherData.location.name}, ${weatherData.location.region}`;
 
         const temp = document.querySelector('.general-info .temp');
-        temp.textContent = `${weatherData.tempF}\u00B0`;
+        temp.textContent = `${Math.round(weatherData.tempF)}\u00B0`;
 
         const high = document.querySelector('.general-info .high');
         high.textContent = `High: ${weatherData.highF}\u00B0`;
@@ -98,23 +99,51 @@ export default class UI {
         //use a for loop to go through each 
     }
 
-    static dispHourly (weatherData) {
-        //get current time
-        const currentTime = Time.getCurrentTime();
-        //loop through the hours array for first day.
-        //test each hour to see if it is after current time
-            //when it is, take that hour and build the dom elements.
-        for (let i = 0; i < 24; i++) {
-            const hour = weatherData.day0.hourly.hours[i];
-            const time = Time.formatTime24(hour.time);
-            if (time > currentTime) {
-                this.createHour(hour);
-            }
+    static clearHourly () {
+        const allDaysCont = document.querySelector('.hourly-cont .days-cont');
+        while (allDaysCont.firstChild) {
+            allDaysCont.removeChild(allDaysCont.firstChild);
         }
+
     }
 
-    static createHour (hour) {
-        const overflowCont = document.querySelector('.overflow-cont');
+    static dispHourly (weatherData) {
+        this.clearHourly();
+        
+        const allDaysCont = document.querySelector('.hourly-cont .days-cont');
+
+        for (let i = 0; i < weatherData.numOfDays; i++) {
+    
+            const dayCont = document.createElement('div');
+            dayCont.classList.add('hourly-day-cont');
+    
+            const day = document.createElement('p');
+            day.classList.add('day');
+            day.textContent = weatherData[`day${i}`].dayOfWeek;
+
+            const overflowCont = document.createElement('div');
+            overflowCont.classList.add('overflow-cont');
+
+            const currentTime = Time.getCurrentTime();
+            for (let j = 0; j < 24; j++) {
+                const hour = weatherData[`day${i}`].hourly.hours[j];
+                const time = Time.formatTime24(hour.time);
+                if (i === 0) {
+                    if (time > currentTime) {
+                        this.createHour(hour, overflowCont);
+                    }
+                } else {
+                    this.createHour(hour, overflowCont);
+                }
+            }
+
+            dayCont.append(day, overflowCont);
+            allDaysCont.appendChild(dayCont);
+        }        
+    }
+
+    static createHour (hour, container) {
+        const overflowCont = container;
         
         const hourCont = document.createElement('div');
         hourCont.classList.add('hour-cont');
