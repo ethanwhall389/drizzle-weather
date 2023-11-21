@@ -21,6 +21,7 @@ export default class UI {
         conditions.textContent = weatherData.condition;
 
         const condCont = document.querySelector('.conditions-cont');
+        
         const icon = this.createIcon(weatherData.condition);
         condCont.appendChild(icon);
 
@@ -56,7 +57,6 @@ export default class UI {
             while (daysCont.firstChild) {
                 daysCont.removeChild(daysCont.firstChild);
             }
-        
     }
 
     static dispDaily (weatherData) {

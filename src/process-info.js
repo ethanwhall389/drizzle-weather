@@ -50,12 +50,11 @@ export default class Process {
                 'rainChance': data.forecast.forecastday[i].day.daily_chance_of_rain,
                 'snowChance': data.forecast.forecastday[i].day.daily_chance_of_snow,
                 'hourly': {
-
+                    'numOfHours': data.forecast.forecastday[i].hour.length,
+                    'hours': data.forecast.forecastday[i].hour,
                 }
-
             }
         }
-
         return forecast;
     }
 }
