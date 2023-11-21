@@ -28,14 +28,22 @@ function requestUserLocation () {
 }
 
 async function loadWeather (query) {
-    localStorage.setItem ('lastUsedLoc', query);
-    console.log(query);
-    const weatherData = await Api.fetchWeather(query)
-    const currentWeather = Process.currentWeather(weatherData);
-    const forecastWeather = Process.forecastWeather(weatherData);
+    try {
+        UI.showLoading();
+        localStorage.setItem ('lastUsedLoc', query);
+        console.log(query);
 
-    UI.currentWeather(currentWeather);
-    UI.forecastWeather(forecastWeather);
+        const weatherData = await Api.fetchWeather(query)
+        const currentWeather = Process.currentWeather(weatherData);
+        const forecastWeather = Process.forecastWeather(weatherData);
+    
+        UI.currentWeather(currentWeather);
+        UI.forecastWeather(forecastWeather);
+        UI.hideLoading();
+    
+    } catch (error) {
+        alert(error);
+    }
 }
 
 function queryWeather () {

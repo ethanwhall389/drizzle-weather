@@ -123,4 +123,17 @@ export default class UI {
         }
         return icon;
     }
+
+    static showLoading() {
+        console.log('loading...');
+        const loading = document.querySelector('.loading-cont');
+        loading.classList.remove('hidden');
+    }
+
+    static hideLoading() {
+        console.log('done loading');
+        const loading = document.querySelector('.loading-cont');
+        loading.classList.add('hidden');
+
+    }
 }

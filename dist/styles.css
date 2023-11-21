@@ -18,6 +18,21 @@ body {
     color: #ffff;
 }
 
+.loading-cont {
+    width: 100vw;
+    height: 100vh;
+    background: green;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
 .main-cont {
     display: flex;
     flex-direction: column;
