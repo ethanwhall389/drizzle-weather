@@ -57,3 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const searchBttn = document.querySelector('.search-bttn');
 searchBttn.addEventListener('click', queryWeather);
+
+const searchForm = document.querySelector('form');
+searchForm.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+        event.preventDefault();
+        queryWeather();
+    }
+})
