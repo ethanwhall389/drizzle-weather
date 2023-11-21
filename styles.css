@@ -211,7 +211,6 @@ section.current-info {
 }
 
 .icon {
-    border: 2px solid gray;
     width: 20px;
     height: 20px;
     justify-self: flex-end;
