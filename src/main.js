@@ -32,7 +32,6 @@ async function loadWeather (query) {
     try {
         UI.showLoading();
         localStorage.setItem ('lastUsedLoc', query);
-        console.log(query);
 
         const weatherData = await Api.fetchWeather(query)
         const currentWeather = Process.currentWeather(weatherData);
@@ -53,8 +52,6 @@ function queryWeather () {
     if (searchBox.value != '') {
         const query = searchBox.value;
         loadWeather(query);
-    } else {
-        console.log('Please enter a location');
     }
     searchBox.value = '';
 }

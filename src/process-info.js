@@ -24,7 +24,6 @@ export default class Process {
     }
 
     static forecastWeather (data) {
-        console.log(data);
         
         let forecast = {
             'numOfDays': data.forecast.forecastday.length,

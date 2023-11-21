@@ -4,19 +4,11 @@ export default class UI {
     static currentWeather (weatherData) {
         this.dispGeneralInfo(weatherData);
         this.dispSpecificInfo(weatherData);
-        console.log('weatherData:');
-        console.log(weatherData);
-        console.log(`${weatherData.location.name}, ${weatherData.location.region}`);
-        console.log('current:');
     }
 
     static forecastWeather (weatherData) {
-        console.log(`${weatherData.day0.location.name}, ${weatherData.day0.location.region}`);
-        console.log('forecast:')
-        console.log(weatherData);
         this.dispDaily(weatherData);
-        this.dispHourly(weatherData);
-        
+        this.dispHourly(weatherData); 
     }
 
     static dispGeneralInfo (weatherData) {
@@ -57,10 +49,10 @@ export default class UI {
     }
 
     static clearDaily () {
-        const daysCont = document.querySelector('.days-cont');
-            while (daysCont.firstChild) {
-                daysCont.removeChild(daysCont.firstChild);
-            }
+    const daysCont = document.querySelector('.days-cont');
+        while (daysCont.firstChild) {
+            daysCont.removeChild(daysCont.firstChild);
+        }
     }
 
     static dispDaily (weatherData) {
@@ -74,7 +66,6 @@ export default class UI {
             day.classList.add('day');
             // day.textContent = weatherData[`day${i}`].date;
             day.textContent = weatherData[`day${i}`].dayOfWeek;
-            console.log('day:' + weatherData[`day${i}`].dayOfWeek);
 
             const highLowCont = document.createElement('div');
             highLowCont.classList.add('high-low');
@@ -96,7 +87,6 @@ export default class UI {
             dayCont.appendChild(icon);
             daysCont.appendChild(dayCont);
         }
-        //use a for loop to go through each 
     }
 
     static clearHourly () {
@@ -104,7 +94,6 @@ export default class UI {
         while (allDaysCont.firstChild) {
             allDaysCont.removeChild(allDaysCont.firstChild);
         }
-
     }
 
     static dispHourly (weatherData) {
@@ -161,8 +150,6 @@ export default class UI {
 
         overflowCont.appendChild(hourCont);
         hourCont.append(time, conditionIcon, temp);
-
-
     }
 
     static createIcon (con) {
@@ -195,13 +182,11 @@ export default class UI {
     }
 
     static showLoading() {
-        console.log('loading...');
         const loading = document.querySelector('.loading-cont');
         loading.classList.remove('hidden');
     }
 
     static hideLoading() {
-        console.log('done loading');
         const loading = document.querySelector('.loading-cont');
         loading.classList.add('hidden');
     }
