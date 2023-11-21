@@ -14,6 +14,7 @@ function checkStorage () {
 }
 
 function requestUserLocation () {
+    UI.showLoading();
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition( (position) => {
             //Success
@@ -22,7 +23,7 @@ function requestUserLocation () {
             loadWeather(`${userLat},${userLon}`);
         }, () => {
             //Failure
-            return; //default loc is already loaded.
+            checkStorage(); //default loc is already loaded.
         }, {enableHighAccuracy: true})
     }
 }
@@ -54,12 +55,12 @@ function queryWeather () {
     } else {
         console.log('Please enter a location');
     }
+    searchBox.value = '';
 }
 
 //EVENT LISTENERS
 
 document.addEventListener('DOMContentLoaded', () => {
-    checkStorage();
     requestUserLocation();  
 });
 
