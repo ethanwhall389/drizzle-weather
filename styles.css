@@ -52,17 +52,6 @@ body {
     padding: 20px;
 }
 
-/* .main-cont::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: brightness(70%);
-    z-index: -1;
-} */
-
 section.current-info {
     display: flex;
     justify-content: space-between;
