@@ -45,19 +45,11 @@ body {
 .main-cont {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100vh;
+    height: 100%;
     background-image: url('./media/bg-images/clear-sunny.jpg');
     background-size: cover;
     background-position: center;
-    /* filter: brightness(50%); */
-    /* background: #737373; */
     padding: 20px;
-    /* z-index: -1; */
 }
 
 /* .main-cont::before {
