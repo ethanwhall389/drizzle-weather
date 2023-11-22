@@ -51,11 +51,11 @@ body {
     bottom: 0;
     left: 0;
     height: 100vh;
-    /* background-image: url('./media/sunset.jpg');
+    background-image: url('./media/bg-images/clear-sunny.jpg');
     background-size: cover;
-    background-position: center; */
+    background-position: center;
     /* filter: brightness(50%); */
-    background: #737373;
+    /* background: #737373; */
     padding: 20px;
     /* z-index: -1; */
 }

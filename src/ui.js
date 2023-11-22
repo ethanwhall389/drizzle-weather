@@ -181,6 +181,25 @@ export default class UI {
         return icon;
     }
 
+    static loadBgImage (weatherData) {
+        const con = weatherData.condition.toLowerCase();
+        const mainCont = document.querySelector('.main-cont');
+
+        if (con.includes('rain') || con.includes('drizzle')) {
+            mainCont.style.backgroundImage = "url('./media/bg-images/rainy.jpg')";
+        } else if (con.includes('cloudy') || con.includes('overcast') || con.includes('thundery') || con.includes('snow') || con.includes('blizzard')) {
+            mainCont.style.backgroundImage = "url('./media/bg-images/cloudy-lightrain.jpg')";
+        } else if (con.includes('fog') || con === 'mist') {
+            mainCont.style.backgroundImage = "url('./media/bg-images/fog-mist.jpg')";
+        } else if (con === 'clear') {
+            mainCont.style.backgroundImage = "url('./media/bg-images/clear-night.jpg')";
+        } else if (con === 'sunny') {
+            mainCont.style.backgroundImage = "url('./media/bg-images/clear-sunny.jpg')";
+        } else {
+            mainCont.style.backgroundImage = "url('./media/bg-images/clear-sunny.jpg')";
+        }
+    }
+
     static showLoading() {
         const loading = document.querySelector('.loading-cont');
         loading.classList.remove('hidden');

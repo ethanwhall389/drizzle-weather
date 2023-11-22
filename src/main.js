@@ -37,6 +37,7 @@ async function loadWeather (query) {
         const currentWeather = Process.currentWeather(weatherData);
         const forecastWeather = Process.forecastWeather(weatherData);
     
+        UI.loadBgImage(currentWeather);
         UI.currentWeather(currentWeather);
         UI.forecastWeather(forecastWeather);
         UI.hideLoading();
