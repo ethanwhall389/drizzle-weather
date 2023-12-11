@@ -46,31 +46,12 @@ body {
 .main-cont {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100vh;
-    /* background-image: url('./media/sunset.jpg');
+    height: 100%;
+    background-image: url('./media/bg-images/clear-sunny.jpg');
     background-size: cover;
-    background-position: center; */
-    /* filter: brightness(50%); */
-    background: #737373;
+    background-position: center;
     padding: 20px;
-    /* z-index: -1; */
 }
-
-/* .main-cont::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: brightness(70%);
-    z-index: -1;
-} */
 
 section.current-info {
     display: flex;
@@ -182,6 +163,11 @@ section.current-info {
     flex: 1;
     border-radius: 15px;
     padding: 20px;
+}
+
+.daily-cont {
+    height: 100%;
+    padding-bottom: 30px;
 }
 
 .heading-cont {
